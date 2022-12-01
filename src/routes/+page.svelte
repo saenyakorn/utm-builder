@@ -1,9 +1,8 @@
 <script lang="ts">
-  import Input from './lib/Input.svelte'
-  import ShortUrl from './lib/ShortURL.svelte'
-  import type { Campaign } from './types'
+  import Input from '$lib/Input.svelte'
+  import ShortUrl from '$lib/ShortURL.svelte'
 
-  let campaign: Campaign = {
+  let campaign = {
     websiteURL: '',
     campaignId: '',
     campaignSource: '',

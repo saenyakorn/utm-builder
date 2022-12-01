@@ -28,9 +28,12 @@
 
     const url = new URL(campaign.websiteURL)
     const urlParams = new URLSearchParams()
-    urlParams.set('utm_id', campaign.campaignId)
+
     urlParams.set('utm_source', campaign.campaignSource)
     urlParams.set('utm_medium', campaign.campaignMedium)
+    if (campaign.campaignId) {
+      urlParams.set('utm_id', campaign.campaignId)
+    }
     if (campaign.campaignName) {
       urlParams.set('utm_campaign', campaign.campaignName)
     }
@@ -54,10 +57,10 @@
     return url.toString()
   }
 
-  async function generateShortUrl(): Promise<string | null> {
+  async function generateShortUrl(): Promise<void> {
     const fullUrl = generateFullUrl(campaign)
     if (!fullUrl) {
-      return null
+      return
     }
     const shortLink = await getShortLink(fullUrl)
     shortUrl = shortLink

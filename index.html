@@ -5,15 +5,15 @@
     <link rel="icon" href="./vite.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout-9c6a9103.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_layout-71f031c8.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/_page-e74dc2bf.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/start-4ff56d5f.js">
+		<link rel="modulepreload" href="./_app/immutable/start-48fb5a8f.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-c865f862.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-491a3497.js">
 		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-0fa2c935.js">
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.ts-b8ee4d7c.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-1daba58d.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-2a965c5d.js"><title>UTM Builder</title><!-- HEAD_svelte-sjnd1q_START --><!-- HEAD_svelte-sjnd1q_END -->
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-9ac4eb1d.js"><title>UTM Builder</title><!-- HEAD_svelte-sjnd1q_START --><!-- HEAD_svelte-sjnd1q_END -->
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">
@@ -22,20 +22,27 @@
 
 
 <main class="flex flex-col p-20 gap-8 items-center"><h1 class="text-3xl font-bold text-center">UTM Builder</h1>
-  <form class="flex flex-col w-full max-w-md gap-4"><div class="flex flex-col gap-2 w-full"><label for="websiteURL">Website URL</label>
-  <input type="text" placeholder="https://google.com" required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignId">Campaign Id</label>
-  <input type="text" placeholder="campaign Id..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignSource">Campaign source</label>
-  <input type="text" placeholder="campaign source..." required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignMedium">Campaign medium</label>
-  <input type="text" placeholder="campaign medium..." required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignName">CampaignName</label>
-  <input type="text" placeholder="campaign name..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignTerm">Campaign term</label>
-  <input type="text" placeholder="campaign term..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
-    <div class="flex flex-col gap-2 w-full"><label for="campaignContent">Campaign content</label>
-  <input type="text" placeholder="campaign content..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <form class="flex flex-col w-full max-w-md gap-4"><div><div class="flex flex-col gap-2 w-full"><label for="websiteURL" class="after:content-['*'] after:text-red-500 after:ml-1 align-middle">Website URL</label>
+    <input type="text" placeholder="https://google.com" required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">The full website URL (e.g. https://www.example.com)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignId" class="">Campaign Id</label>
+    <input type="text" placeholder="campaign Id..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">The campaign id (e.g. abc.123)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignSource" class="after:content-['*'] after:text-red-500 after:ml-1 align-middle">Campaign source</label>
+    <input type="text" placeholder="campaign source..." required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">Identify the advertiser, site, publication (e.g. google, newsletter4)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignMedium" class="after:content-['*'] after:text-red-500 after:ml-1 align-middle">Campaign medium</label>
+    <input type="text" placeholder="campaign medium..." required class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">The advertising or marketing medium (e.g. cpc, banner, email)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignName" class="">Campaign name</label>
+    <input type="text" placeholder="campaign name..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">The individual campaign name, slogan, promo code, etc. for a product. (e.g. spring_sale)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignTerm" class="">Campaign term</label>
+    <input type="text" placeholder="campaign term..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">Identify the paid keywords (e.g. running+shoes)</span></div>
+    <div><div class="flex flex-col gap-2 w-full"><label for="campaignContent" class="">Campaign content</label>
+    <input type="text" placeholder="campaign content..." class="w-full border-2 border-solid border-gray-300 p-2 rounded-md hover:border-blue-400 transition-colors" value=""></div>
+  <span class="text-xs text-gray-400">Use to differentiate ads or links that point to the same URL (e.g. logolink)</span></div>
     <div class="flex flex-col gap-2 w-full"><div><h1 class="font-bold text-xl">Generated Url</h1>
     <p class="text-zinc-400">Fill the required fields to generate the URL</p></div>
 
@@ -45,8 +52,8 @@
   <p class="text-zinc-400">Fill the required fields to generate the URL</p></div></form></main>
 
 
-		<script type="module" data-sveltekit-hydrate="107s355">
-			import { start } from "./_app/immutable/start-4ff56d5f.js";
+		<script type="module" data-sveltekit-hydrate="tth412">
+			import { start } from "./_app/immutable/start-48fb5a8f.js";
 
 			start({
 				env: {},
@@ -60,8 +67,8 @@
 					form: null
 				},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="107s355"]').parentNode,
-				version: "1669926408135"
+				target: document.querySelector('[data-sveltekit-hydrate="tth412"]').parentNode,
+				version: "1669988691643"
 			});
 		</script>
 	</div>

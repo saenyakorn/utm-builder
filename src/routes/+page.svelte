@@ -21,6 +21,7 @@
       id="websiteURL"
       label="Website URL"
       placeholder="https://google.com"
+      helperText="The full website URL (e.g. https://www.example.com)"
       required
     />
     <Input
@@ -28,12 +29,14 @@
       id="campaignId"
       label="Campaign Id"
       placeholder="campaign Id..."
+      helperText="The campaign id (e.g. abc.123)"
     />
     <Input
       bind:value={campaign.campaignSource}
       id="campaignSource"
       label="Campaign source"
       placeholder="campaign source..."
+      helperText="Identify the advertiser, site, publication (e.g. google, newsletter4)"
       required
     />
     <Input
@@ -41,25 +44,29 @@
       id="campaignMedium"
       label="Campaign medium"
       placeholder="campaign medium..."
+      helperText="The advertising or marketing medium (e.g. cpc, banner, email)"
       required
     />
     <Input
       bind:value={campaign.campaignName}
       id="campaignName"
-      label="CampaignName"
+      label="Campaign name"
       placeholder="campaign name..."
+      helperText="The individual campaign name, slogan, promo code, etc. for a product. (e.g. spring_sale)"
     />
     <Input
       bind:value={campaign.campaignTerm}
       id="campaignTerm"
       label="Campaign term"
       placeholder="campaign term..."
+      helperText="Identify the paid keywords (e.g. running+shoes)"
     />
     <Input
       bind:value={campaign.campaignContent}
       id="campaignContent"
       label="Campaign content"
       placeholder="campaign content..."
+      helperText="Use to differentiate ads or links that point to the same URL (e.g. logolink)"
     />
     <ShortUrl bind:campaign />
   </form>

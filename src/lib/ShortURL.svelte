@@ -27,7 +27,7 @@
     }
 
     const url = new URL(campaign.websiteURL)
-    const urlParams = new URLSearchParams()
+    const urlParams = new URLSearchParams(url.search)
 
     urlParams.set('utm_source', campaign.campaignSource)
     urlParams.set('utm_medium', campaign.campaignMedium)

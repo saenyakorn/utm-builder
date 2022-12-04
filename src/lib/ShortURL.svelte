@@ -3,6 +3,7 @@
   import { getShortLink } from '../utils/shortLink'
   import Button from './Button.svelte'
   import CopyToClipboard from './CopyToClipboard.svelte'
+  import { AxiosError } from 'axios'
 
   interface $$Props {
     campaign: Campaign
@@ -58,12 +59,19 @@
   }
 
   async function generateShortUrl(): Promise<void> {
-    const fullUrl = generateFullUrl(campaign)
-    if (!fullUrl) {
-      return
+    try {
+      const fullUrl = generateFullUrl(campaign)
+      if (!fullUrl) {
+        return
+      }
+      const shortLink = await getShortLink(fullUrl)
+      shortUrl = shortLink
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        console.error(err.response?.data.error)
+        alert(err.response?.data.error)
+      }
     }
-    const shortLink = await getShortLink(fullUrl)
-    shortUrl = shortLink
   }
 
   $: fullUrl = generateFullUrl(campaign)

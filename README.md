@@ -70,4 +70,3 @@ This project is developed using [Github Page](https://pages.github.com/). It's u
 
 To deploy the project, one thing you have to do is `dispatching` the [Deployment Workflow](https://github.com/saenyakorn/utm-builder/actions/workflows/deploy.yaml) then the site will be deployed automatically using latest version of `main` branch.
 
-> Don't forget to change CNAME file if you want to deploy to your own domain.

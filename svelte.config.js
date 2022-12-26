@@ -1,7 +1,5 @@
 import adapter from '@sveltejs/adapter-static'
-import preprocess from 'svelte-preprocess'
-
-const dev = 'production' === 'development'
+import { vitePreprocess } from '@sveltejs/kit/vite'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,17 +7,11 @@ const config = {
     adapter: adapter({
       pages: 'dist',
       assets: 'dist',
-      paths: {
-        // change below to your repo name
-        base: dev ? '' : '/utm-builder',
-      },
+      precompress: true,
     }),
+    appDir: 'internal',
   },
-  preprocess: [
-    preprocess({
-      postcss: true,
-    }),
-  ],
+  preprocess: [vitePreprocess()],
 }
 
 export default config

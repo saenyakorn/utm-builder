@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Input from '$lib/Input.svelte'
   import type { Campaign } from '../types'
   import { getShortLink } from '../utils/shortLink'
   import Button from './Button.svelte'
@@ -58,13 +59,14 @@
     return url.toString()
   }
 
+  let customPath = ''
   async function generateShortUrl(): Promise<void> {
     try {
       const fullUrl = generateFullUrl(campaign)
       if (!fullUrl) {
         return
       }
-      const shortLink = await getShortLink(fullUrl)
+      const shortLink = await getShortLink(fullUrl, customPath)
       shortUrl = shortLink
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -75,6 +77,8 @@
   }
 
   $: fullUrl = generateFullUrl(campaign)
+
+
 </script>
 
 <div class="flex flex-col gap-2 w-full">
@@ -89,6 +93,13 @@
 
   <Button type="button" onClick={generateShortUrl} label="Generate Short Link" />
 
+  <Input
+    bind:value={customPath}
+    id="customPath"
+    label="Custom shortlink path"
+    placeholder="custom path..."
+    helperText={`https://${import.meta.env.VITE_SHORT_IO_DOMAIN}/custom-path`}
+  />
   <h1 class="font-bold text-xl">Short link</h1>
   {#if shortUrl}
     <CopyToClipboard text={shortUrl} />

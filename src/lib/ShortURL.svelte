@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Input from '$lib/Input.svelte'
+  import Input from '$lib/Input.svelte'
   import type { Campaign } from '../types'
   import { getShortLink } from '../utils/shortLink'
   import Button from './Button.svelte'
@@ -11,6 +11,7 @@
   }
 
   export let campaign: Campaign
+
   let shortUrl = ''
 
   function validateInput(campaign: Campaign) {
@@ -59,6 +60,7 @@
     return url.toString()
   }
 
+  let title = ''
   let customPath = ''
   async function generateShortUrl(): Promise<void> {
     try {
@@ -66,7 +68,10 @@
       if (!fullUrl) {
         return
       }
-      const shortLink = await getShortLink(fullUrl, customPath)
+      const shortLink = await getShortLink(fullUrl, {
+        title: title,
+        path: customPath,
+      })
       shortUrl = shortLink
     } catch (err) {
       if (err instanceof AxiosError) {
@@ -77,8 +82,6 @@
   }
 
   $: fullUrl = generateFullUrl(campaign)
-
-
 </script>
 
 <div class="flex flex-col gap-2 w-full">
@@ -93,6 +96,14 @@
 
   <Button type="button" onClick={generateShortUrl} label="Generate Short Link" />
 
+  <Input
+    bind:value={title}
+    id="title"
+    label="Title"
+    placeholder="title..."
+    helperText="Title of created URL to be shown in short.io admin panel"
+    required
+  />
   <Input
     bind:value={customPath}
     id="customPath"

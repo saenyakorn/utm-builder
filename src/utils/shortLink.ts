@@ -1,10 +1,16 @@
 import axios from 'axios'
 
-export async function getShortLink(url: string, customPath?: string): Promise<string> {
+interface Options {
+  path?: string
+  title?: string
+}
+
+export async function getShortLink(url: string, options?: Options): Promise<string> {
   const body = {
     domain: import.meta.env.VITE_SHORT_IO_DOMAIN,
     originalURL: url,
-    path: customPath,
+    path: !options?.path ? undefined : options.path,
+    title: !options?.title ? undefined : options.title,
   }
 
   const { data } = await axios.post('https://api.short.io/links/public', body, {
